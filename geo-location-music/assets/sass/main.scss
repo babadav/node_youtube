@@ -1,0 +1,49 @@
+/* 
+==============================================
+CONTENT:	Project Name Here
+AUTHOR:		Your Name Here
+==============================================
+
+TABLE OF CONTENTS:
+
+1. Main Layout
+2. Content
+
+==============================================
+*/
+
+
+
+/* 1. Main Layout ================================= */
+
+* {
+	box-sizing: border-box;
+}
+
+.item{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+	button{
+	    width: 180px;
+	    height: 30px;
+	    border-radius: 50px;
+	    background-color: green;
+	}
+}
+
+.played-near-here{
+	display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 50%;
+
+	.near-here-item{
+
+
+	}
+
+	h2{
+
+	}
+}
