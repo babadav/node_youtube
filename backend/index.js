@@ -31,8 +31,16 @@ var Videos = mongoose.model('Videos', videosSchema);
 
 
 
-app.get(`/videos`, function(req,res) {
-	Videos.find({},function(err, videos) {
+app.get(`/videos/:lat/:lng`, function(req,res) {
+
+	console.log("request for videos at location", req.params.lat, req.params.lng)
+
+	Videos.find({
+		coords:{
+			lat: req.params.lat,
+			lng: req.params.lng
+		}
+	},function(err, videos) {
 		// console.log(markers)
 
 		res.json(videos);
@@ -40,21 +48,21 @@ app.get(`/videos`, function(req,res) {
 })
 
 app.post('/newVideo', function(req,res) {
-video = new Videos({
-			title:  req.body.title,
-			url: 	req.body.url,
-			coords: req.body.coords,
-		});
-		video.save(function (err) {
-			if (err) {
-				console.log(err, "shit");
-				res.json(err)
-			} else {
-				console.log('video.title');
-				res.send('success');
-				
-			}
-		});
+	video = new Videos({
+		title:  req.body.title,
+		url: 	req.body.url,
+		coords: req.body.coords,
+	});
+	video.save(function (err) {
+		if (err) {
+			console.log(err, "shit");
+			res.json(err)
+		} else {
+			console.log('video.title');
+			res.send('success');
+			
+		}
+	});
 })
 
 
